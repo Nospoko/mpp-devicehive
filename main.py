@@ -17,9 +17,8 @@ class SimpleHandler(Handler):
         print(command.command)
 
     def handle_notification(self, notification):
-        print(notification.notification)
-        print(notification.parameters)
-        print(notification.timestamp)
+        print(notification.device_id)
+        print(notification.parameters['tick'])
         print('--')
 
 if __name__ == '__main__':
