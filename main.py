@@ -6,7 +6,7 @@ from datetime import datetime as dt
 def notification2points(notification):
     device_id = notification.device_id
     value = notification.parameters['tick'] % 100
-    print(value)
+    print(device_id, value)
 
     points = [{
         "measurement": '{}'.format(device_id),
@@ -32,7 +32,7 @@ class SimpleHandler(Handler):
         self.db = InfluxDBClient(host, port, USER, PASSWORD, DBNAME)
 
     def handle_connect(self):
-        device_ids = ['esp-mon1']
+        device_ids = ['esp-mon1', 'esp-michal']
         for device_id in device_ids:
             device = self.api.put_device(device_id)
             device.subscribe_insert_commands()
